@@ -12,17 +12,24 @@ public class SimpleGizmoDisplay : MonoBehaviour
 		LINE
 	};
 
+	[Tooltip("The gizmo to render")]
 	public GIZMOTYPE _gizmoType;
+	[Tooltip("Colour values to use for rendering the gizmos")]
 	public Color _color = new Color(1, 1, 1, 1);
 
+	[Tooltip("Dimensions for shape gizmos.\nThe x dimension is used for the radius.")]
 	public Vector3 _dimensions;
+	[Tooltip("Offset from the transform of the gameObject this is attached to")]
 	public Vector3 _offset;
 
-	// This looks for an icon image placed in Assets/Gizmos
+	[Tooltip("This looks for an icon image placed in Assets/Gizmos")]
 	public string _iconImage = "icon.tif";
+	[Tooltip("Should icons scale when you zoom in/out")]
 	public bool _allowIconScaling = false;
 
+	[Tooltip("When using a line gizmo, where is the end point?")]
 	public Vector3 _endPoint;
+	[Tooltip("Should the end point of a line be offset or not?")]
 	public bool _offsetEnd;
 
 	void OnDrawGizmos()
@@ -42,12 +49,12 @@ public class SimpleGizmoDisplay : MonoBehaviour
 				Gizmos.DrawWireCube(position, _dimensions);
 				break;
 
-			// Use x value of dimensions for the radius
+			// Use x value of _dimensions for the radius
 			case GIZMOTYPE.SPHERE:
 				Gizmos.DrawSphere(position, _dimensions.x);
 				break;
 
-			// Use x value of dimensions for the radius
+			// Use x value of _dimensions for the radius
 			case GIZMOTYPE.WIRESPHERE:
 				Gizmos.DrawWireSphere(position, _dimensions.x);
 				break;
